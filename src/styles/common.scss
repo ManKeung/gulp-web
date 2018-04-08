@@ -1,0 +1,177 @@
+@charset 'utf-8';
+
+/**
+ * 公共样式 相当于手机版
+ */
+
+/**
+ * 变量设置
+ */
+
+/* 主题色*/
+$color:#38adff #ffffff #ffb600 #f5f7f8; /* 主题蓝 白色 辅助黄 背景浅白*/
+
+/* 字体*/
+$fcolor:#363636 #b6babe;
+
+/* 线框*/
+$xcolor:#dde4e8 #e5e5e5;
+
+/* 半透明*/
+$ocolor:rgba(56, 172, 254, .8);
+
+/**
+ * 字体大小
+ */
+$font: 16px; /* html设置字体大小*/
+
+/**
+ * 不透明度
+ */
+@mixin opa($opa:50) {
+  opacity: $opa / 100;
+  filter: alpha(opacity=$opa);
+}
+
+/**
+ * 动画
+ */
+
+/* Internet Explorer 10、Firefox 以及 Opera 支持 @keyframes 规则和 animation 属性。 Chrome 和 Safari 需要前缀 -webkit-。*/
+@mixin animation($n:move,$do:2s,$fn:linear,$d:0,$it:1,$di:normal) {
+  animation: {
+    name: $n; /* 动画名字*/
+    duration: $do; /* 完成动画所花费的时间，以秒或毫秒计*/
+    timing-function: $fn; /* 动画速度曲线*/
+    delay: $d; /* 开始前的延迟*/
+    iteration-count: $it; /* 动画播放次数*/
+    direction: $di; /* 是否反向播放*/
+  }
+  -moz-animaton: {
+    name: $n; /* 动画名字*/
+    duration: $do; /* 完成动画所花费的时间，以秒或毫秒计*/
+    timing-function: $fn; /* 动画速度曲线*/
+    delay: $d; /* 开始前的延迟*/
+    iteration-count: $it; /* 动画播放次数*/
+    direction: $di; /* 是否反向播放*/
+  }
+  -webkit-animation: {
+    name: $n; /* 动画名字*/
+    duration: $do; /* 完成动画所花费的时间，以秒或毫秒计*/
+    timing-function: $fn; /* 动画速度曲线*/
+    delay: $d; /* 开始前的延迟*/
+    iteration-count: $it; /* 动画播放次数*/
+    direction: $di; /* 是否反向播放*/
+  }
+  -o-animation: {
+    name: $n; /* 动画名字*/
+    duration: $do; /* 完成动画所花费的时间，以秒或毫秒计*/
+    timing-function: $fn; /* 动画速度曲线*/
+    delay: $d; /* 开始前的延迟*/
+    iteration-count: $it; /* 动画播放次数*/
+    direction: $di; /* 是否反向播放*/
+  }
+}
+
+/**
+ * 过渡
+ */
+
+/* Internet Explorer 10、Firefox、Chrome 以及 Opera 支持 transition 属性。Safari 需要前缀 -webkit-。*/
+@mixin transition($n:all,$do:2s,$fn:linear,$d:0) {
+  transition: {
+    property: $n; /* 过渡属性*/
+    duration: $do; /* 执行时间*/
+    timing-function: $fn; /* 速度曲线*/
+    delay: $d; /* 过渡何时开始*/
+  }
+  -moz-transition: {
+    property: $n; /* 过渡属性*/
+    duration: $do; /* 执行时间*/
+    timing-function: $fn; /* 速度曲线*/
+    delay: $d; /* 过渡何时开始*/
+  }
+  -webkit-transition: {
+    property: $n; /* 过渡属性*/
+    duration: $do; /* 执行时间*/
+    timing-function: $fn; /* 速度曲线*/
+    delay: $d; /* 过渡何时开始*/
+  }
+  -o-transition: {
+    property: $n; /* 过渡属性*/
+    duration: $do; /* 执行时间*/
+    timing-function: $fn; /* 速度曲线*/
+    delay: $d; /* 过渡何时开始*/
+  }
+}
+
+/**
+ * box-shadow 参数不确定
+ */
+
+/* Internet Explorer 9+ 支持 border-radius 和 box-shadow 属性。Firefox、Chrome 以及 Safari 支持所有新的边框属性。*/
+@mixin boxShadow($shadow...){
+  -webkit-box-shadow: $shadow;
+     -moz-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+
+/**
+ * border-radius
+ */
+@mixin borderRadius ($r) {
+  -moz-border-radius: $r;
+       border-radius: $r;
+}
+
+/**
+ * box-size
+ */
+@mixin boxSize($size:border-box) {
+  -webkit-box-sizing: $size;
+     -moz-box-sizing: $size;
+          box-sizing: $size;
+}
+
+/**
+ * 引入字体图标
+ */
+
+@font-face {
+  font-family: 'iconfont';
+  src: url('../font/iconfont.eot');
+  src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('../font/iconfont.woff') format('woff'),
+  url('../font/iconfont.ttf') format('truetype'),
+  url('../font/iconfont.svg#iconfont') format('svg');
+}
+
+[class^="icon_"],
+[class*=" icon_"] {
+  font-family:"iconfont" !important;
+  font-size:16px;font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ * html body
+ */
+
+html, body {
+  font: {
+    size: $font;
+  }
+
+  width: 100%;
+  height: 100%;
+  position: relative;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+}
+
+/* ***********************************************************************************/
+
+
