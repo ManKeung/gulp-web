@@ -20,11 +20,16 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const cssnano = require('gulp-cssnano');
+const autoprefixer = require('gulp-autoprefixer');
 
 // 1. scss编译 压缩 --合并没有必要，一般预处理CSS都可以导包
 gulp.task('style',() => {
   return gulp.src('./src/styles/*.scss') // 引入文件
     .pipe(sass().on('error', sass.logError)) // scss 编译成 css 有错输出
+    .pipe(autoprefixer({ // css 兼容
+      browsers: ['last 2 versions'],
+      cascade: false
+    }))
     .pipe(cssnano()) // css压缩
     .pipe(gulp.dest('./dist/styles'))
     .pipe(browserSync.reload({
